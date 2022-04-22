@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:netflix_ui/Downloads/downloads.dart';
 import 'package:netflix_ui/Fast%20Laugh/fast_laught.dart';
 import 'package:netflix_ui/Home%20Page/home_page.dart';
@@ -20,8 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primarySwatch: Colors.grey,
         backgroundColor: Colors.black,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: Color.fromARGB(255, 12, 12, 12),
         fontFamily: GoogleFonts.montserrat().fontFamily,
         cardColor: Colors.black,
         splashColor: Colors.transparent,
@@ -45,6 +45,14 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+List<Widget> pages = [
+  ScreenHome(),
+  ScreenNewAndHot(),
+  ScreenFastLaugh(),
+  ScreenSearch(),
+  ScreenDownloads()
+];
+
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
 
@@ -53,25 +61,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: CustomBottomNavigationBar(
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        currentIndex: _currentIndex,
-      ),
-      body: Column(
+      body: Stack(
         children: <Widget>[
-          Expanded(
-            child: IndexedStack(index: _currentIndex, children: const <Widget>[
-              ScreenHome(),
-              ScreenNewAndHot(),
-              ScreenFastLaugh(),
-              ScreenSearch(),
-              ScreenDownloads()
-            ]),
-          ),
+          pages[_currentIndex],
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: CustomBottomNavigationBar(
+              onTap: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+              currentIndex: _currentIndex,
+            ),
+          )
         ],
       ),
     );

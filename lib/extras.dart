@@ -26,7 +26,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         elevation: 0,
         type: BottomNavigationBarType.fixed,
         currentIndex: widget.currentIndex,
-        backgroundColor: const Color.fromARGB(232, 0, 0, 0),
+        backgroundColor: widget.currentIndex==2 ? Color.fromARGB(75, 0, 0, 0) : Colors.black,
         fixedColor: Colors.white,
         selectedFontSize: 11,
         unselectedFontSize: 9,
@@ -35,7 +35,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           BottomNavigationBarItem(
               label: "Home", icon: Icon(Icons.home_rounded)),
           BottomNavigationBarItem(
-              label: "New and Hot", icon: Icon(Icons.photo_library_outlined)),
+              label: "New & Hot", icon: Icon(Icons.photo_library_outlined)),
           BottomNavigationBarItem(
               label: "Fast Laughs", icon: Icon(Icons.emoji_emotions_outlined)),
           BottomNavigationBarItem(

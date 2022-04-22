@@ -27,23 +27,30 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  cupertino_icons: ^1.0.2
+  bordered_text: ^2.0.0
+  cupertino_icons: 1.0.2
   flutter:
     sdk: flutter
-  flutter_feather_icons: ^2.0.0+1
-  google_fonts: ^2.3.1
+  flutter_feather_icons: 2.0.0+1
+  google_fonts: 2.3.1
+  http: 0.13.4
+  intl: ^0.17.0
+  json_annotation: ^4.4.0
+  json_serializable: ^6.1.6
+  scrollable_list_tabview:
+    git:
+      url: https://github.com/aswanath/scrollable_list_tabview_custom.git
+      ref: master
+  shimmer: ^2.0.0
+  sliver_tools: 0.2.5
+  sticky_headers: 0.2.0
+  video_player: 2.4.0
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
-
+  build_runner:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter.
